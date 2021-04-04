@@ -13,33 +13,4 @@ app.get("/",(req,res)=>{
     res.send("Hellow World");
 });
 
-app.get("/test",(req,res)=>{
-    res.send("API Testing");
-});
-
-app.post("/postTest",(req,res)=>{
-    res.send("Post Call Testing");
-})
-
-app.put("/putTest",(req,res)=>{
-    res.send("Put Call Testing");
-})
-
-app.delete("/deleteTest",(req,res)=>{
-    res.send("Delete Call Testing");
-})
-
-app.post("/databody",(req,res)=>{
-    console.log(req.body);
-    res.send(req.body);
-})
-
-app.post("/dataParams/:name",(req,res)=>{
-    console.log(req.params);
-    res.send(req.params);
-})
-
-app.post("/dataQuery",(req,res)=>{
-    console.log(req.query);
-    res.send(req.query);
-});
+require('./app/routes/test.routes')(app);
