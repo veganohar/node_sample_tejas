@@ -30,3 +30,18 @@ exports.dataQuery = (req,res)=>{
     console.log(req.query);
     res.send(req.query);
 }
+
+exports.testejs = (req,res)=>{
+    let data ={title:"Test Ejs",heading:"Welcome to Ejs"};
+    res.render("test",data);
+}
+
+exports.form = (req,res)=>{
+    res.render("form");
+}
+
+exports.result = (req,res)=>{
+    console.log(req.body);
+    let data = req.body
+    res.render("result",data);
+}

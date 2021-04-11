@@ -8,4 +8,7 @@ module.exports = function(app){
     app.post("/databody",controller.databody);
     app.post("/dataParams/:name",controller.dataParams);
     app.post("/dataQuery",controller.dataQuery);
+    app.get("/testejs",controller.testejs);
+    app.get("/form",controller.form);
+    app.post("/result",controller.result);
 }
