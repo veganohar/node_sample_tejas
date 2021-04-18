@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const db = require("./app/models");
+const dbconfig = require("./app/config/db.config");
 
 app.use(bodyParser.json());
 
@@ -11,7 +12,7 @@ app.listen(port,()=>{
     console.log("http://localhost:"+port);
 }); 
 
-mongoose.connect('mongodb://localhost/tejas_db', {
+db.mongoose.connect(`mongodb://${dbconfig.HOST}:${dbconfig.PORT}/${dbconfig.DB}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -31,3 +32,4 @@ app.get("/",(req,res)=>{
 
 
 require('./app/routes/test.routes')(app);
+require('./app/routes/user.routes')(app);
